@@ -1,4 +1,5 @@
 import { Calendar1, MessagesSquare, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 interface BlogCardProps {
   image: string;
@@ -8,7 +9,17 @@ interface BlogCardProps {
   description: string;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ image, date, comments, title, description }) => {
+const BlogCard: React.FC<BlogCardProps> = ({
+  image,
+  date,
+  comments,
+  title,
+  description,
+}) => {
+  const blogSlug = title.toLowerCase().replace(/\s+/g, "-");
+  console.log("Generated Blog Slug:", blogSlug);
+
+
   return (
     <div className="w-[300px] h-auto bg-white rounded-lg shadow-md overflow-hidden">
       {/* Image Section */}
@@ -40,9 +51,11 @@ const BlogCard: React.FC<BlogCardProps> = ({ image, date, comments, title, descr
 
       {/* Footer Section */}
       <div className="flex items-center px-4 py-2">
-        <p className="text-sm font-medium cursor-pointer hover:underline">
-          Read more
-        </p>
+        <Link href={`/blogs/${blogSlug}`}>
+          <p className="text-sm font-medium cursor-pointer hover:underline">
+            Read more
+          </p>
+        </Link>
         <ChevronRight className="w-5 h-5 text-yellow-500" />
       </div>
     </div>
