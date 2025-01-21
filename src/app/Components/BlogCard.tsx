@@ -50,14 +50,14 @@ const BlogCard: React.FC<BlogCardProps> = ({
       </div>
 
       {/* Footer Section */}
-      <div className="flex items-center px-4 py-2">
-        <Link href={`/blogs/${blogSlug}`}>
+      {/* <div className="flex items-center px-4 py-2">
+        <Link href={/blogs/${blogSlug}}>
           <p className="text-sm font-medium cursor-pointer hover:underline">
             Read more
           </p>
         </Link>
         <ChevronRight className="w-5 h-5 text-yellow-500" />
-      </div>
+      </div> */}
     </div>
   );
 };
